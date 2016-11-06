@@ -13,7 +13,6 @@ namespace HangfireWeb
                 .UseSqlServerStorage("Server=(localdb)\\MSSQLLocalDB;Integrated Security=true");
 
             app.UseHangfireDashboard();
-            app.UseHangfireServer();
         }
     }
 }
