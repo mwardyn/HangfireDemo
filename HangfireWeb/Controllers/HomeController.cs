@@ -1,7 +1,4 @@
-﻿using System;
-using System.Web.Mvc;
-using Hangfire;
-using HangfireJobs;
+﻿using System.Web.Mvc;
 
 namespace HangfireWeb.Controllers
 {
@@ -9,7 +6,7 @@ namespace HangfireWeb.Controllers
     {
         public ActionResult Index()
         {
-            return View();
+            return Redirect("~/Hangfire");
         }
 
         public ActionResult About()
@@ -24,12 +21,6 @@ namespace HangfireWeb.Controllers
             ViewBag.Message = "Your contact page.";
 
             return View();
-        }
-
-        public ActionResult Add()
-        {
-            RecurringJob.AddOrUpdate<FailingJob>(x=>x.RunJob(), Cron.Daily(5));
-            return this.Redirect("\\hangfire");
         }
     }
 }
